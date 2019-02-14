@@ -25,8 +25,14 @@ public class Task2Customer {
 
 	@BeforeClass
 	public void beforeClass() {
+		/**
+	     * Test report will be generated to below path
+	     * This path (C:\\Reports\\IN3240\\Task1.html) for Windows. 
+	     * For Mac/Linux you need to change path
+	    */
 		report = new ExtentReports("C:\\Reports\\IN3240\\Task2.html");
 		test = report.startTest("Task 2");
+		//System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver"); 
 		driver = new ChromeDriver();
 		test.log(LogStatus.INFO, "Browser started");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -39,6 +45,9 @@ public class Task2Customer {
 	@Test(priority = 1, description = "Login with valid user")
 	public void login() {
 		
+		// Create a new instance of the LoginWebElement page object
+		//LoginWebElement login = new LoginWebElement(driver);
+		
 		/**
 	     * fill in the code to complete the test method
 	     * Call login method from LoginWebElement.java
@@ -48,6 +57,9 @@ public class Task2Customer {
 	
 	@Test(priority = 2, description = "Create customer")
 	public void create() {
+		
+		// Create a new instance of the CustomerWebElement page object
+		//CustomerWebElement customer = new CustomerWebElement(driver);
 		
 		/**
 	     * fill in the code to complete the test method
@@ -75,7 +87,12 @@ public class Task2Customer {
 		
 }
 	
+	/**
+     * For Mac/Linux you need to change path in ScreenShots.java    
+    */
 	
+	
+	//Take a screenShots if test fail
 	@AfterMethod
 	public void tearDown(ITestResult testResult) throws IOException {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
@@ -84,7 +101,7 @@ public class Task2Customer {
 			test.log(LogStatus.FAIL, "TASK 2 - FAILED", imagePath);
 		}
 	}
-
+	//Take a screenShots if test passed
 	@AfterMethod
 	public void Summary(ITestResult summary) throws IOException {
 		if (summary.getStatus() == ITestResult.SUCCESS) {
@@ -96,7 +113,7 @@ public class Task2Customer {
 
 	@AfterClass
 	public void endTest() {
-		driver.close(); //Close browser
+		driver.close(); // Close browser
 		report.flush(); // Appends the HTML file with all the ended tests.
 		
 	}

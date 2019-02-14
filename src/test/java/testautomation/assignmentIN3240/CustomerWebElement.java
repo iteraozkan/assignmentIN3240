@@ -16,7 +16,7 @@ public class CustomerWebElement {
 	WebElement createNewBtn; 
 	
 	
-	
+	//Static initElement method of PageFactory class for initializing WebElement
 	public CustomerWebElement(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

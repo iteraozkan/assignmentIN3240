@@ -12,7 +12,7 @@ public class LoginWebElement {
 	//WebElement loginBtn;
 
 	
-
+	//Static initElement method of PageFactory class for initializing WebElement
 	public LoginWebElement(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

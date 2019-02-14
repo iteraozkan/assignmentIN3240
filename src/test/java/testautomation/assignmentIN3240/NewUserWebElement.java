@@ -11,6 +11,7 @@ public class NewUserWebElement {
 	//@FindBy(linkText = "Sign Up")
 	//WebElement signUpBtn;
 	
+	//Static initElement method of PageFactory class for initializing WebElement
 	public NewUserWebElement(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

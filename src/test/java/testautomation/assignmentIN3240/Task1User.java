@@ -4,10 +4,8 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import testautomation.assignmentIN3240.NewUserWebElement;
 import testautomation.assignmentIN3240.ScreenShots;
-
 import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -26,8 +24,15 @@ public class Task1User {
 
 	@BeforeClass
 	public void beforeClass() {
-		report = new ExtentReports("C:\\Reports\\IN3240\\Task1.html");
+		/**
+	     * Test report will be generated to below path
+	     * This path (C:\\Reports\\IN3240\\Task1.html) for Windows. 
+	     * For Mac/Linux you need to change path
+	    */
+		report = new ExtentReports("C:\\Reports\\IN3240\\Task1.html");  
 		test = report.startTest("Task 1");
+		
+		//System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver"); 
 		driver = new ChromeDriver();
 		test.log(LogStatus.INFO, "Browser started");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -38,11 +43,21 @@ public class Task1User {
 
 	@Test
 	public void createNewUser() {
+		
+		//Create a new instance of the NewUserWebElement page object
+		//NewUserWebElement user = new NewUserWebElement(driver);
+		
 		/**
 	     * fill in the code to complete the test method
 	    */
 		
 	}
+	
+	
+	
+	/**
+     * For Mac/Linux you need to change path in ScreenShots.java    
+    */
 	
 	//Take a screenShots if test fail
 	@AfterMethod
